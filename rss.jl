@@ -1,19 +1,11 @@
 # Parse RSS documents
 
 
-function main(arguments=ARGS)
-    # run the RSS parser from the command line
+function parse(url)
+    # Parse an RSS feed
+    #
+    # input:
+    #   url: A URL to an RSS feed
 
-    if length(arguments) != 1
-        println("usage:\n  julia rss.jl URL")
-        exit(1)
-    end
-
-    println("TODO: parse '$(arguments[1])'")
-    exit(1)
-end
-
-# TODO: This will be called by something that imports this file :(
-if !isinteractive()
-    main()
+    error("TODO: parse feed at '$url'")
 end

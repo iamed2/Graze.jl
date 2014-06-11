@@ -1,11 +1,13 @@
 # Parse RSS documents
+type NotImplementedError <: Exception end
 
 
 function parse(url)
-    # Parse an RSS feed
-    #
-    # input:
-    #   url: A URL to an RSS feed
+    #= Parse an RSS feed
+      input:
+        url: A URL to an RSS feed
+    =#
 
-    error("TODO: parse feed at '$url'")
+    info("TODO: parse feed at '$url'")
+    throw(NotImplementedError())
 end

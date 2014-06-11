@@ -13,7 +13,13 @@ function main(arguments=ARGS)
     try
         parse(arguments[1])
     catch exception
-        println("Error while parsing feed:\n$exception")
+        if isa(exception, NotImplementedError)
+            println("That functionality hasn't been added yet")
+
+        else:
+            println("Error while parsing feed:\n$exception")
+        end
+
         exit(1)
     end
 end

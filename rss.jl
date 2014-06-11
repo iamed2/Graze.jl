@@ -13,5 +13,7 @@ function main(arguments=ARGS)
     exit(1)
 end
 
-# TODO: how do I only do this if called from the main line
-main()
+# TODO: This will be called by something that imports this file :(
+if !isinteractive()
+    main()
+end

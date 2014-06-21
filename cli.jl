@@ -1,5 +1,6 @@
 # Run graze from the command line
-require("./rss.jl")
+import RSS.NotImplementedError
+import RSS.parse
 
 
 function main(arguments=ARGS)

@@ -1,4 +1,7 @@
 # Parse RSS documents
+module RSS
+export NotImplementedError, parse
+
 type NotImplementedError <: Exception end
 
 
@@ -10,4 +13,5 @@ function parse(url)
 
     info("TODO: parse feed at '$url'")
     throw(NotImplementedError())
+end
 end

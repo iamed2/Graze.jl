@@ -1,6 +1,5 @@
 # Run graze from the command line
-import RSS.NotImplementedError
-import RSS.parse
+import RSS: parse, NotImplementedError
 
 
 function main(arguments=ARGS)

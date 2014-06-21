@@ -1,5 +1,5 @@
 # Run graze from the command line
-import RSS: parse, NotImplementedError
+import RSS: parse, HTTPError, NotImplementedError
 
 
 function main(arguments=ARGS)
@@ -13,7 +13,9 @@ function main(arguments=ARGS)
     try
         parse(arguments[1])
     catch exception
-        if isa(exception, NotImplementedError)
+        if isa(exception, HTTPError)
+            println("Request to URL failed")
+        elseif isa(exception, NotImplementedError)
             println("That functionality hasn't been added yet")
 
         else:

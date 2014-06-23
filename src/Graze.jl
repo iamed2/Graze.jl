@@ -1,7 +1,7 @@
 #=
 Parse an RSS feed
 =#
-module RSS
+module Graze
 import HTTPClient: get
 import LibExpat: xp_parse, find
 

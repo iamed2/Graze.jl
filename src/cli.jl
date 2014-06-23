@@ -3,9 +3,9 @@
 Run Graze from the command line.
 
 Usage:
-graze URL
+cli.jl URL
 =#
-import RSS: parse, FeedError, HTTPError, NotImplementedError
+import Graze: parse, FeedError, HTTPError, NotImplementedError
 
 
 function main(arguments=ARGS)

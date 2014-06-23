@@ -1,4 +1,4 @@
-graze.jl
+Graze.jl
 ========
 
 A feed reader

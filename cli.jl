@@ -1,32 +1,48 @@
-# Run graze from the command line
-import RSS: parse, HTTPError, NotImplementedError
+#!/usr/bin/env julia
+#=
+Run Graze from the command line.
+
+Usage:
+graze URL
+=#
+import RSS: parse, FeedError, HTTPError, NotImplementedError
 
 
 function main(arguments=ARGS)
-    # run the RSS parser from the command line
+    #=
+    Run Graze.
 
+    input:
+        arguments: An array of command line arguments.
+    =#
     if length(arguments) != 1
-        println("usage:\n  julia cli.jl URL")
+        println("USAGE:\n\tcli.jl URL")
         exit(1)
     end
 
+    feed = parse(arguments[1])
+
     try
-        parse(arguments[1])
+        feed = parse(arguments[1])
     catch exception
         if isa(exception, HTTPError)
-            println("Request to URL failed")
+            println("Unable to access '$(arguments[1])'")
+        elseif isa(exception, FeedError)
+            println("Error while parsing feed")
         elseif isa(exception, NotImplementedError)
-            println("That functionality hasn't been added yet")
-
-        else:
-            println("Error while parsing feed:\n$exception")
+            println("Looks like I'm not done making this yet")
+        else
+            println("Something went wrong:\n$exception")
         end
 
         exit(1)
     end
+
+    println(feed)
 end
 
 
 if !isinteractive()
+    #  It's not quite __name__ == '__main__', but it will do
     main()
 end
